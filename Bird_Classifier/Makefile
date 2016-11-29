@@ -4,7 +4,7 @@ data.zip:
 full_dataset.pkl: data.zip
 	unzip data.zip
 
-BirdClassifier.py: full_dataset.pkl
+BirdClassifier.py: BirdClassifier.ipynb
 	jupyter nbconvert --to python BirdClassifier.ipynb
 
 bird-classifier.tfl: BirdClassifier.py
