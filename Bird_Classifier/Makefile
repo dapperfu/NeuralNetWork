@@ -1,3 +1,7 @@
+.PHONY: all
+all:
+	@echo "'make all' not supported"
+
 data.zip:
 	wget "https://s3-us-west-2.amazonaws.com/ml-is-fun/data.zip"
 
