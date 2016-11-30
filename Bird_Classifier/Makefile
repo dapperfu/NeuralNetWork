@@ -2,7 +2,7 @@ data.zip:
 	wget "https://s3-us-west-2.amazonaws.com/ml-is-fun/data.zip"
 
 full_dataset.pkl: data.zip
-	unzip data.zip
+	unzip -o data.zip
 
 BirdClassifier.py: BirdClassifier.ipynb
 	jupyter nbconvert --to python BirdClassifier.ipynb
