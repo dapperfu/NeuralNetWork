@@ -1,13 +1,3 @@
-SOURCES = $(wildcard *.ipynb)
-TARGETS = $(basenome $(SOURCES))
-
-.PHONY: all
-all: $(TARGETS)
-
-
-$(TARGETS): %.py
-	jupyter nbconvert --to python $@
-
 data.zip:
 	wget "https://s3-us-west-2.amazonaws.com/ml-is-fun/data.zip"
 
@@ -25,6 +15,9 @@ PickleToHDF.py: PickleToHDF.ipynb
 
 full_dataset.hdf5: full_dataset.pkl PickleToHDF.py
 	python3 PickleToHDF.py
+
+merged_dataset.hdf5:
+
 
 .PHONY: clean
 clean:
