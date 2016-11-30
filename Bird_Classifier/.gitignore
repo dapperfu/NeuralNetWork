@@ -1,5 +1,5 @@
 *.meta
-*.tfl.ckpt-*
+*.ckpt*
 .ipynb_checkpoints/*
 data.zip
 full_dataset.pkl
