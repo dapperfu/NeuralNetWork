@@ -20,11 +20,13 @@ for i in range(len(taxonomies)):
         
     for image in glob.glob(os.path.join(taxonomy,"*.png")):
         image_ = Image.open(image)
-        image_list.append(np.asarray(image_)/255)
+        image_array = np.asarray(image_)/255
+        assert(image_array.shape == (32, 32, 3))        
         classification_list.append(classification)
-assert len(image_list)==len(classification_list)
-hdf_dataset = "imported_dataset.hdf5"
+        
+assert(len(image_list)==len(classification_list))
 
+hdf_dataset = "imported_dataset.hdf5"
 opts=dict()
 opts["compression"]="gzip"
 opts["compression_opts"]=9
