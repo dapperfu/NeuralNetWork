@@ -21,7 +21,10 @@ full_dataset.pkl: data.zip
 04\ -\ ExtractImages.py: 04\ -\ ExtractImages.ipynb
 	jupyter nbconvert --to python "$<"
 
-05\ -\ Import Images.py: 05\ -\ Import\ Images.ipynb
+05\ -\ Import\ Images.py: 05\ -\ Import\ Images.ipynb
+	jupyter nbconvert --to python "$<"
+
+06\ -\ Train\ Imported\ Images.py: 06\ -\ Train\ Imported\ Images.ipynb
 	jupyter nbconvert --to python "$<"
 
 full_dataset.hdf5: 01\ -\ PickleToHDF.py
@@ -34,4 +37,7 @@ Images: 04\ -\ ExtractImages.py merged_dataset.hdf5
 	python3 "$<"
 
 imported_dataset.hdf5: 05\ -\ Import\ Images.py Images
+	python3 "$<"
+
+image-classifier.tfl: 06\ -\ Train\ Imported\ Images.py imported_dataset.hdf5
 	python3 "$<"
