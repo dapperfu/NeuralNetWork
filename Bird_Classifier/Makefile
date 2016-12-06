@@ -12,7 +12,7 @@ full_dataset.pkl: data.zip
 	jupyter nbconvert --to python "01 - PickleToHDF.ipynb"
 
 full_dataset.hdf5: full_dataset.pkl 01\ -\ PickleToHDF.py
-	python3 PickleToHDF.py
+	python3 "01 - PickleToHDF.py"
 
 merged_dataset.hdf5:
 
