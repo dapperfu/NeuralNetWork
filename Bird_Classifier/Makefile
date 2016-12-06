@@ -18,6 +18,9 @@ full_dataset.pkl: data.zip
 02\ -\ Merge\ Data.py: 02\ -\ Merge\ Data.ipynb
 	jupyter nbconvert --to python "$<"
 
+04\ -\ ExtractImages.py: 04\ -\ ExtractImages.ipynb
+        jupyter nbconvert --to python "$<"
+
 full_dataset.hdf5: full_dataset.pkl 01\ -\ PickleToHDF.py
 	python3 "01 - PickleToHDF.py"
 
