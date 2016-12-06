@@ -8,16 +8,10 @@ data.zip:
 full_dataset.pkl: data.zip
 	unzip -o data.zip
 
-BirdClassifier.py: BirdClassifier.ipynb
-	jupyter nbconvert --to python BirdClassifier.ipynb
+"01 - PickleToHDF.py": "01 - PickleToHDF.ipynb"
+	jupyter nbconver --to python "01 - PickleToHDF.ipynb"
 
-bird-classifier.tfl: BirdClassifier.py
-	python3 BirdClassifier.py
-
-PickleToHDF.py: PickleToHDF.ipynb
-	jupyter nbconvert --to python BirdClassifier.ipynb
-
-full_dataset.hdf5: full_dataset.pkl PickleToHDF.py
+full_dataset.hdf5: full_dataset.pkl "01 - PickleToHDF.py"
 	python3 PickleToHDF.py
 
 merged_dataset.hdf5:
