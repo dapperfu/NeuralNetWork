@@ -1,0 +1,8 @@
+*.meta
+*.ckpt*
+.ipynb_checkpoints/*
+*/.ipynb_checkpoints/*
+*/data.zip
+*/full_dataset.pkl
+*.py
+*.jpg
