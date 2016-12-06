@@ -19,13 +19,19 @@ full_dataset.pkl: data.zip
 	jupyter nbconvert --to python "$<"
 
 04\ -\ ExtractImages.py: 04\ -\ ExtractImages.ipynb
-        jupyter nbconvert --to python "$<"
+	jupyter nbconvert --to python "$<"
 
-full_dataset.hdf5: full_dataset.pkl 01\ -\ PickleToHDF.py
-	python3 "01 - PickleToHDF.py"
+05\ -\ Import Images.py: 05\ -\ Import\ Images.ipynb
+	jupyter nbconvert --to python "$<"
 
-merged_dataset.hdf5: full_dataset.hdf5 02\ -\ Merge\ Data.py
-	python3 "02 - Merge Data.py"
+full_dataset.hdf5: 01\ -\ PickleToHDF.py
+	python3 "$<"
 
-Images: merged_dataset.hdf5 04\ -\ ExtractImages.py
-	python3 "04 - ExtractImages.py"
+merged_dataset.hdf5: 02\ -\ Merge\ Data.py full_dataset.hdf5
+	python3 "$<"
+
+Images: 04\ -\ ExtractImages.py merged_dataset.hdf5
+	python3 "$<"
+
+imported_dataset.hdf5: 05\ -\ Import\ Images.py Images
+	python3 "$<"
