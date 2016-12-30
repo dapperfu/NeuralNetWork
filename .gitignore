@@ -4,5 +4,10 @@
 */.ipynb_checkpoints/*
 */data.zip
 */full_dataset.pkl
+*/__pycache__/
 *.py
 *.jpg
+*.hdf5
+*.tfl*
+checkpoint/
+*/checkpoint
